@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JAFLY SPORTS COMPLEX | Your Game. Your Ground.</title>
+    <title>JAFLY SPORTS COMPLEX | Gowainghat, Sylhet</title>
     <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <!-- Three.js CDN for 3D Turf Layout Visualization -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 <body>
     <!-- Navigation -->
@@ -17,8 +19,12 @@
             </div>
             <ul class="nav-links">
                 <li><a href="#home" data-i18n="nav_home">Home</a></li>
+                <li><a href="#visualizer" data-i18n="nav_3d">3D Layout</a></li>
                 <li><a href="#book" data-i18n="nav_book">Book a Turf</a></li>
-                <li><a href="#branches" data-i18n="nav_branches">Branches</a></li>
+                <li><a href="#pricing" data-i18n="nav_pricing">Pricing</a></li>
+                <li><a href="#cafe" data-i18n="nav_cafe">Cafe & Menu</a></li>
+                <li><a href="#facilities" data-i18n="nav_facilities">Facilities</a></li>
+                <li><a href="#rules" data-i18n="nav_rules">Rules</a></li>
                 <li><a href="admin.html" data-i18n="nav_admin">Admin</a></li>
             </ul>
             <div class="nav-actions">
@@ -33,18 +39,22 @@
         <div class="hero-overlay"></div>
         <div class="container hero-content">
             <h1 data-i18n="hero_title">YOUR GAME. YOUR GROUND.</h1>
-            <p data-i18n="hero_subtitle">Find your slot. Bring your team. Make every match count.</p>
+            <p data-i18n="hero_subtitle">Jaflong, Sylhet — 30 Decimal Premium Sports Complex.</p>
             <div class="hero-buttons">
                 <a href="#book" class="btn-primary btn-large" data-i18n="hero_btn_book">BOOK YOUR SLOT</a>
-                <a href="#branches" class="btn-outline btn-large" data-i18n="hero_btn_explore">EXPLORE JAFLY</a>
-            </div>
-            <div class="hero-highlights">
-                <span><i class="fas fa-futbol"></i> <span data-i18n="hl_premium">Premium Football Turf</span></span>
-                <span><i class="fas fa-mobile-alt"></i> <span data-i18n="hl_booking">Easy Online Booking</span></span>
-                <span><i class="fas fa-users"></i> <span data-i18n="hl_teams">Built for Every Team</span></span>
+                <a href="#visualizer" class="btn-outline btn-large" data-i18n="hero_btn_3d">VIEW 3D LAYOUT</a>
             </div>
         </div>
     </header>
+
+    <!-- 3D Layout & Visualization Section -->
+    <section id="visualizer" class="section-padding bg-light">
+        <div class="container">
+            <h2 class="section-title" data-i18n="sec_3d_title">Interactive 3D Turf Preview</h2>
+            <p style="text-align:center; margin-bottom:20px; color:var(--muted);" data-i18n="sec_3d_sub">Experience the 30-decimal complex layout before booking your match.</p>
+            <div id="canvas-container" style="width: 100%; height: 400px; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1);"></div>
+        </div>
+    </section>
 
     <!-- Booking Widget -->
     <section id="book" class="booking-section section-padding">
@@ -55,11 +65,11 @@
                     <div class="form-group">
                         <label data-i18n="label_branch">Branch</label>
                         <select id="branchSelect" required>
-                            <option value="gowainghat">Gowainghat, Sylhet (HQ)</option>
+                            <option value="gowainghat">Gowainghat, Sylhet (HQ - 30 Decimal)</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label data-i18n="label_court">Facility</label>
+                        <label data-i18n="label_court">Facility / Pitch</label>
                         <select id="courtSelect" required>
                             <option value="turf1">Premium 5v5 Turf</option>
                             <option value="turf2">Standard 7v7 Turf</option>
@@ -72,8 +82,8 @@
                     <div class="form-group">
                         <label data-i18n="label_time">Time Slot</label>
                         <select id="timeSelect" required>
+                            <option value="08:00">08:00 AM - 09:00 AM (Off-Peak)</option>
                             <option value="16:00">04:00 PM - 05:00 PM</option>
-                            <option value="17:00">05:00 PM - 06:00 PM</option>
                             <option value="18:00">06:00 PM - 07:00 PM (Peak)</option>
                             <option value="19:00">07:00 PM - 08:00 PM (Peak)</option>
                         </select>
@@ -98,6 +108,90 @@
         </div>
     </section>
 
+    <!-- Pricing & Packages Section -->
+    <section id="pricing" class="section-padding bg-light">
+        <div class="container">
+            <h2 class="section-title" data-i18n="pricing_title">Pricing & Packages</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3 data-i18n="p_offpeak">Off-Peak (Morning)</h3>
+                    <div class="price">৳1200 <span>/ hour</span></div>
+                    <p data-i18n="p_offpeak_desc">Ideal for early morning practice & training sessions.</p>
+                </div>
+                <div class="pricing-card featured">
+                    <h3 data-i18n="p_peak">Peak Hour (Evening/Night)</h3>
+                    <div class="price">৳1500 <span>/ hour</span></div>
+                    <p data-i18n="p_peak_desc">Full floodlight illumination for high-energy matches.</p>
+                </div>
+                <div class="pricing-card">
+                    <h3 data-i18n="p_member">Monthly Membership</h3>
+                    <div class="price">৳10,000 <span>/ month</span></div>
+                    <p data-i18n="p_member_desc">Fixed weekly slots with priority booking and discounts.</p>
+                </div>
+                <div class="pricing-card">
+                    <h3 data-i18n="p_tourney">Tournament Package</h3>
+                    <div class="price">Custom</div>
+                    <p data-i18n="p_tourney_desc">Full complex access for corporate or local tournaments.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cafe & Food Menu Section -->
+    <section id="cafe" class="section-padding">
+        <div class="container">
+            <h2 class="section-title" data-i18n="cafe_title">Jafly Turf Café & Refreshments</h2>
+            <p style="text-align:center; margin-bottom:40px; color:var(--muted);" data-i18n="cafe_sub">Refuel after the whistle with snacks, cold drinks, and post-match combo packages.</p>
+            <div class="cafe-grid">
+                <div class="cafe-item">
+                    <h4>Energy Drinks & Hydration</h4>
+                    <p>Gatorade, Red Bull, Coconut Water, Mineral Water</p>
+                    <span class="item-price">৳60 - ৳250</span>
+                </div>
+                <div class="cafe-item">
+                    <h4>Quick Snacks</h4>
+                    <p>Chicken Burger, French Fries, Club Sandwich, Nachos</p>
+                    <span class="item-price">৳120 - ৳350</span>
+                </div>
+                <div class="cafe-item featured-combo">
+                    <h4>Match Winner Combo (Popular)</h4>
+                    <p>1 Burger + 1 French Fries + 1 Energy Drink</p>
+                    <span class="item-price">৳450</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facilities & Amenities Section -->
+    <section id="facilities" class="section-padding bg-light">
+        <div class="container">
+            <h2 class="section-title" data-i18n="fac_title">Facilities & Amenities</h2>
+            <div class="facilities-grid">
+                <div class="facility-card"><i class="fas fa-lightbulb"></i><h4 data-i18n="f_flood">High-Power Floodlights</h4></div>
+                <div class="facility-card"><i class="fas fa-door-open"></i><h4 data-i18n="f_dressing">Dressing Rooms & Lockers</h4></div>
+                <div class="facility-card"><i class="fas fa-restroom"></i><h4 data-i18n="f_wash">Clean Washrooms & Showers</h4></div>
+                <div class="facility-card"><i class="fas fa-car"></i><h4 data-i18n="f_parking">Secure Parking Area</h4></div>
+                <div class="facility-card"><i class="fas fa-mug-hot"></i><h4 data-i18n="f_cafe">On-Site Café Lounge</h4></div>
+                <div class="facility-card"><i class="fas fa-shield-alt"></i><h4 data-i18n="f_sec">24/7 CCTV Security</h4></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rules & Guidelines Section -->
+    <section id="rules" class="section-padding">
+        <div class="container">
+            <h2 class="section-title" data-i18n="rules_title">Turf Rules & Guidelines</h2>
+            <div class="rules-card">
+                <ul>
+                    <li><i class="fas fa-shoe-prints"></i> <strong data-i18n="r_boot">Footwear Policy:</strong> <span data-i18n="r_boot_desc">Metal studs and spikes are strictly prohibited. Only turf boots (TF) or molded rubber studs (AG/FG) are allowed.</span></li>
+                    <li><i class="fas fa-clock"></i> <strong data-i18n="r_time">Arrival Time:</strong> <span data-i18n="r_time_desc">Teams must arrive at least 15 minutes before the booked slot to ensure smooth pitch handover.</span></li>
+                    <li><i class="fas fa-ban"></i> <strong data-i18n="r_smoke">No Smoking/Vaping:</strong> <span data-i18n="r_smoke_desc">Smoking, food, and sugary drinks are strictly not allowed on the turf playing area.</span></li>
+                    <li><i class="fas fa-calendar-times"></i> <strong data-i18n="r_cancel">Cancellation Policy:</strong> <span data-i18n="r_cancel_desc">Free cancellation up to 24 hours prior to the slot. Late cancellations are subject to review.</span></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer>
         <div class="container footer-content">
@@ -109,8 +203,8 @@
             <div class="footer-links">
                 <h3 data-i18n="footer_links">Quick Links</h3>
                 <ul>
-                    <li><a href="#home">Terms & Conditions</a></li>
-                    <li><a href="#home">Cancellation Policy</a></li>
+                    <li><a href="#rules" data-i18n="nav_rules">Rules & Guidelines</a></li>
+                    <li><a href="#pricing" data-i18n="nav_pricing">Pricing Plans</a></li>
                 </ul>
             </div>
         </div>
