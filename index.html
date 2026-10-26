@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JAFLY Sports Complex</title>
+    <style>
+        /* Logo er theke color theme neya hoyeche */
+        :root {
+            --maroon: #7a1f28; 
+            --black: #2a2a2a;
+            --white: #ffffff;
+            --bg-light: #f4f4f4;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-light);
+            color: var(--black);
+        }
+
+        /* Navigation Bar */
+        header {
+            background-color: var(--black);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav .logo {
+            color: var(--white);
+            font-size: 28px;
+            font-weight: bold;
+            text-decoration: none;
+            letter-spacing: 2px;
+        }
+
+        nav .logo span {
+            color: var(--maroon);
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--maroon);
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: var(--maroon);
+            color: var(--white);
+            text-align: center;
+            padding: 100px 20px;
+            background-image: linear-gradient(rgba(122, 31, 40, 0.9), rgba(42, 42, 42, 0.9));
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin: 0 0 15px 0;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin: 0 0 30px 0;
+        }
+
+        .btn {
+            background-color: var(--white);
+            color: var(--maroon);
+            padding: 12px 25px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background-color: var(--black);
+            color: var(--white);
+        }
+
+        /* Common Section Styles */
+        .section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            color: var(--maroon);
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+        }
+
+        /* Address Section */
+        .address-container {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .address-container h3 {
+            color: var(--black);
+            font-size: 1.5rem;
+        }
+
+        .address-container p {
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* Gallery Section */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .media-box {
+            background: #e0e0e0;
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            color: #666;
+            font-size: 1.2rem;
+            border: 2px dashed #999;
+        }
+
+        /* Booking Section */
+        .booking-form {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .booking-form input, 
+        .booking-form select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+
+        .booking-form button {
+            background-color: var(--maroon);
+            color: var(--white);
+            border: none;
+            padding: 15px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .booking-form button:hover {
+            background-color: var(--black);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--black);
+            color: var(--white);
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navigation -->
+    <header>
+        <nav>
+            <a href="#" class="logo">JAFLY <span>SPORTS</span></a>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#address">Address</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#booking">Book Now</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <div class="hero" id="home">
+        <h1>Welcome to JAFLY Sports Complex</h1>
+        <p>Premium Turf for Football, Cricket & More</p>
+        <a href="#booking" class="btn">Book Your Slot</a>
+    </div>
+
+    <!-- Address Section -->
+    <div class="section" id="address">
+        <h2 class="section-title">Our Location</h2>
+        <div class="address-container">
+            <h3>Address</h3>
+            <p>123 Sports Avenue, Dhaka, Bangladesh</p>
+            <h3>Contact Info</h3>
+            <p>Phone: +880 1XXX-XXXXXX</p>
+            <p>Email: booking@jaflysports.com</p>
+        </div>
+    </div>
+
+    <!-- Gallery Section (Photos & Videos) -->
+    <div class="section" id="gallery">
+        <h2 class="section-title">Gallery</h2>
+        <div class="gallery-grid">
+            <!-- Apni pore ei box gulo te nijer <img> tag boshiye nite parben -->
+            <div class="media-box">Turf Photo 1</div>
+            <div class="media-box">Turf Photo 2</div>
+            <div class="media-box">Turf Video 1</div>
+        </div>
+    </div>
+
+    <!-- Booking Section -->
+    <div class="section" id="booking">
+        <h2 class="section-title">Book a Slot</h2>
+        <form class="booking-form" action="#" method="POST">
+            <input type="text" placeholder="Full Name" required>
+            <input type="tel" placeholder="Phone Number" required>
+            <input type="date" required>
+            <select required>
+                <option value="" disabled selected>Select Game Type</option>
+                <option value="football">Football</option>
+                <option value="cricket">Cricket</option>
+            </select>
+            <select required>
+                <option value="" disabled selected>Select Time Slot</option>
+                <option value="morning">Morning (6 AM - 10 AM)</option>
+                <option value="afternoon">Afternoon (3 PM - 6 PM)</option>
+                <option value="evening">Evening (6 PM - 11 PM)</option>
+            </select>
+            <button type="submit">Confirm Booking</button>
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 JAFLY Sports Complex. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

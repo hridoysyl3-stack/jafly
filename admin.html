@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | JAFLY SPORTS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .admin-header { background: var(--charcoal); color: var(--white); padding: 20px 0; margin-bottom: 40px; }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 40px; }
+        .stat-card { background: var(--white); padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-top: 4px solid var(--maroon); }
+        table { width: 100%; border-collapse: collapse; background: var(--white); box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        th, td { padding: 15px; text-align: left; border-bottom: 1px solid #ddd; }
+        th { background: var(--light-bg); color: var(--charcoal); }
+    </style>
+</head>
+<body>
+    <div class="admin-header">
+        <div class="container" style="display:flex; justify-content:space-between; align-items:center;">
+            <h2>JAFLY Admin <span style="font-size:1rem;font-weight:400;">(Demo)</span></h2>
+            <a href="index.html" class="btn-outline">Back to Site</a>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h3>Total Demo Revenue</h3>
+                <h2 style="color:var(--maroon); margin-top:10px;">৳<span id="totalRevenue">0</span></h2>
+            </div>
+        </div>
+
+        <h2 style="margin-bottom:20px;">Recent Bookings</h2>
+        <div style="overflow-x:auto;">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Ref ID</th>
+                        <th>Customer</th>
+                        <th>Date & Time</th>
+                        <th>Facility</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="adminTableBody">
+                    <!-- Populated by JS -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
